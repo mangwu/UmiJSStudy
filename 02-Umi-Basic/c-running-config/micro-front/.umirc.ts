@@ -1,4 +1,4 @@
-import { defineConfig, MicroApp } from 'umi';
+import { defineConfig } from 'umi';
 
 export default defineConfig({
   nodeModulesTransform: {
@@ -22,6 +22,11 @@ export default defineConfig({
         {
           name: 'app-2',
           entry: '//localhost:8002',
+        },
+        // 通过组件方式导入
+        {
+          name: 'app-3',
+          entry: '//localhost:8003',
         }
       ],
     },
