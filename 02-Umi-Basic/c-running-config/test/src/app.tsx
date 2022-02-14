@@ -2,7 +2,7 @@
  * @Author: mangwu                                                             *
  * @File: app.ts                                                               *
  * @Date: 2022-02-14 15:43:17                                                  *
- * @LastModifiedDate: 2022-02-14 16:51:13
+ * @LastModifiedDate: 2022-02-14 18:49:31
  * @ModifiedBy: mangwu                                                         *
  * -----------------------                                                     *
  * Copyright (c) 2022                                                          *
@@ -12,7 +12,7 @@
  * ---------------------	--------	----------------------------------------------- *
  */
 
-let isSubApp = false;
+let isSubApp = true;
 export function modifyClientRenderOpts(memo: any) {
   return {
     ...memo,
