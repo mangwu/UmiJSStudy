@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Umi App</title>
+  <style>
+    .main-title {
+      background-color: aquamarine;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- 使用ejs语法模板 -->
+  <% if(context.env === 'production') { %>
+    <h2 class="main-title">生产环境</h2>
+  <% } else {%>
+    <h2 class="main-title">开发环境</h2>
+  <% } %>
+  <div id="root">
+    微前端，在子节点中渲染
+    <div id="sub-root"></div>
+  </div>
+  
+</body>
+</html>
