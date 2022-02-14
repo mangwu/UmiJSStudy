@@ -8,6 +8,20 @@
         background-color: aquamarine;
         text-align: center;
       }
+      .no-page-404 {
+        color: rgb(236, 221, 83);
+        text-align: center;
+        font-size: 50px;
+      }
+      .no-page {
+        margin-top: 30px;
+        font-size: 25px;
+        font-weight: 800;
+        text-align: center;
+      }
+      .center {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -16,10 +30,14 @@
     <h2 class="main-title">生产环境</h2>
     <% } else {%>
     <h2 class="main-title">开发环境</h2>
+    <% } %> <% if(context.route.path==='/') { %>
+    <h2 class="center">主页面模板</h2>
+    <% } else {%>
+    <h2 class="center">其它页面模板</h2>
+    <h1 class="no-page-404">404</h1>
+    <p class="no-page">没有该页面</p>
     <% } %>
-    <div id="root">
-      微前端，在子节点中渲染
-    </div>
+    <div id="root"></div>
     <div id="sub-root"></div>
   </body>
 </html>
