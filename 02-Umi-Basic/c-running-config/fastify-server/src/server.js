@@ -2,7 +2,7 @@
  * @Author: mangwu                                                             *
  * @File: server.js                                                            *
  * @Date: 2022-02-15 15:35:46                                                  *
- * @LastModifiedDate: 2022-02-15 19:58:33                                      *
+ * @LastModifiedDate: 2022-02-15 23:14:49                                      *
  * @ModifiedBy: mangwu                                                         *
  * -----------------------                                                     *
  * Copyright (c) 2022 inspur                                                   *
@@ -41,18 +41,20 @@ fastify.post("/login", function (request, reply) {
   }
   reply.send({ isAuthed });
 });
-fastify.post("/route", function (request, reply) {
+fastify.post("/routes", function (request, reply) {
   console.log(request.body);
   const data = request.body;
   if (data.role == "admin") {
     // 管理员页面路由
-    reply.send([
-      { name: "管理", path: "/management" },
-      { name: "你好", path: "/hello" },
-    ]);
+    reply.send({
+      routes: [
+        { name: "管理", path: "/management" },
+        { name: "你好", path: "/hello" },
+      ],
+    });
   } else {
     // 普通页面路由
-    reply.send([{ name: "你好", path: "/hello" }]);
+    reply.send({ routes: [{ name: "你好", path: "/hello" }] });
   }
 });
 /**
