@@ -15,8 +15,8 @@
  * description 自定义的antd颜色 拥有两套配色
  */
 export const antdTheme = {
-  primaryColor: '#1890ff', // 全局主色
-  linkColor: '#1890ff', // 链接色
+  primaryColor: '#ff1518', // 全局主色
+  linkColor: '#ff1518', // 链接色
   infoColor: '#1890ff', // 信息色
   successColor: '#9e9fc8', // 成功色
   warningColor: '#faad14', // 警告色
