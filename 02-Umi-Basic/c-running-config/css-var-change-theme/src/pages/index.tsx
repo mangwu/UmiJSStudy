@@ -4,7 +4,6 @@ import { ConfigProvider, Button, message, Table, Tag, Space } from 'antd';
 import { useEffect } from 'react';
 
 ConfigProvider.config({
-  prefixCls: 'custom',
   theme: antdTheme,
 });
 // 表格数据

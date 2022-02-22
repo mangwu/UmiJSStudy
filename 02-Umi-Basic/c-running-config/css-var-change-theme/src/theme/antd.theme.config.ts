@@ -28,11 +28,11 @@ export const antdTheme = {
   boxShadowBase:
     '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),\
   0 9px 28px 8px rgba(0, 0, 0, 0.05)', // 浮层阴影
-  componentBackground: "#fff",
+  componentBackground: '#fff',
   // 表格样式
   tableHeaderBg: 'hsv(0, 0, 98%)',
   tableBodySortBg: '#fafafa',
-  tableRowHoverBg: "hsv(0, 0, 98%)",
+  tableRowHoverBg: 'hsv(0, 0, 98%)',
   tableHeaderCellSplitColor: 'rgba(0, 0, 0, 0.06)',
   tableHeaderSortBg: 'hsv(0, 0, 96%)',
   tableHeaderFilterActiveBg: 'rgba(0, 0, 0, 0.04)',
@@ -40,8 +40,8 @@ export const antdTheme = {
   tableFixedHeaderSortActiveBg: 'hsv(0, 0, 96%)',
   tableFilterBtnsBg: 'inherit',
   tableExpandedRowBg: '#fbfbfb',
-  tableFilterDropdownBg:'#fff',
-  tableExpandIconBg:'#fff',
+  tableFilterDropdownBg: '#fff',
+  tableExpandIconBg: '#fff',
 };
 
 export const antdDarkTheme = {
@@ -51,25 +51,39 @@ export const antdDarkTheme = {
   successColor: '#1ABFC4', // 成功色
   warningColor: '#FA9314', // 警告色
   errorColor: '#FF4DEF', // 错误色
-  headingColor: 'rgba(255, 255, 255, 0.95)', // 标题色
+  headingColor: 'fade(@white, 85%)', // 标题色
   textColor: 'rgba(255, 255, 255, 0.75)', // 次文本色
   textColorSecondary: 'rgba(155, 155, 155, 0.45)', // 失效色
   borderColorBase: '#fafafa', // 边框色
   boxShadowBase:
     '0 3px 6px -4px rgba(88, 88, 88, 0.12), 0 6px 16px 0 rgba(88, 88, 88, 0.08),\
   0 9px 28px 8px rgba(88, 88, 88, 0.05)', // 浮层阴影
-  componentBackground: "#1d1d1d", // 组件背景颜色
+  bodyBackground: '#000',
+  componentBackground: '#141414',
+  textColorInverse: '@white',
+  iconColorHover: 'fade(@white, 75%)',
+  iconColor: '@white',
   // 表格颜色
-  tableHeaderBg: 'hsv(0, 0, 98%)',
-  tableBodySortBg: 'fade(#fff, 1%)',
-  tableRowHoverBg: "#262626",
-  tableHeaderCellSplitColor: 'fade(#fff, 8%)',
+  tableHeaderBg: '#1d1d1d',
+  tableBodySortBg: 'fade(@white, 1%)',
+  tableRowHoverBg: '#262626',
+  tableHeaderCellSplitColor: 'fade(@white, 8%)',
   tableHeaderSortBg: '#262626',
   tableHeaderFilterActiveBg: '#434343',
   tableHeaderSortActiveBg: '#303030',
   tableFixedHeaderSortActiveBg: '#222',
   tableFilterBtnsBg: '#1f1f1f',
   tableExpandedRowBg: '#1d1d1d',
-  tableFilterDropdownBg:'#1f1f1f',
-  tableExpandIconBg:'transparent',
+  tableFilterDropdownBg: '#1f1f1f',
+  tableExpandIconBg: 'transparent',
+  // 分页
+  paginationItemBg: 'transparent',
+  paginationItemBgActive: 'transparent',
+  paginationItemLinkBg: 'transparent',
+  paginationItemDisabledBgActive: 'fade(@white, 25%)',
+  paginationItemDisabledColorActive: '@black',
+  paginationItemInputBg: '@pagination-item-bg',
+  // page-header
+  pageHeaderBackColor: '@icon-color',
+  pageHeaderGhostBg: 'transparent',
 };
