@@ -1,4 +1,3 @@
-// import styles from './index.less';
 import './index.less';
 import {
   ConfigProvider,
@@ -12,12 +11,6 @@ import {
   Tag,
 } from 'antd';
 import { useEffect, useState } from 'react';
-ConfigProvider.config({
-  theme: {
-    primaryColor: '#1890ff',
-    infoColor: '1890ff',
-  },
-});
 
 
 const data = [
@@ -50,54 +43,54 @@ export default function IndexPage() {
     root.className = 'blue';
   }, []);
   // 表格数据
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text: any) => <a className={`${prefix}-link`}>{text}</a>,
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (tags: any) => (
-      <>
-        {tags.map((tag: any) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_text: any, record: any) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: (text: any) => <a>{text}</a>,
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
+      title: 'Tags',
+      key: 'tags',
+      dataIndex: 'tags',
+      render: (tags: any) => (
+        <>
+          {tags.map((tag: any) => {
+            let color = tag.length > 5 ? 'geekblue' : 'green';
+            if (tag === 'loser') {
+              color = 'volcano';
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_text: any, record: any) => (
+        <Space size="middle">
+          <a>Invite {record.name}</a>
+          <a>Delete</a>
+        </Space>
+      ),
+    },
+  ];
   // css var变量前缀名默认为ant
   const [prefix, setPrefix] = useState('ant');
   // 修改前缀名称方法
@@ -107,13 +100,6 @@ const columns = [
     const className = e.target.value == 'ant' ? 'blue' : 'red';
     const root = document.documentElement;
     root.className = className;
-    const prColor = e.target.value == 'ant' ? '#1890ff' : '#fa0f0f';
-    ConfigProvider.config({
-      theme: {
-        primaryColor: prColor,
-        infoColor: prColor,
-      },
-    });
   };
   return (
     <ConfigProvider prefixCls={prefix}>
@@ -132,6 +118,9 @@ const columns = [
         <Button type="primary">Primary button</Button>
         <Button type="primary" onClick={() => message.info('提示')}>
           提示
+        </Button>
+        <Button type="primary" onClick={() => message.error('警告')}>
+          警告
         </Button>
         <Table dataSource={data} columns={columns} />
       </div>
