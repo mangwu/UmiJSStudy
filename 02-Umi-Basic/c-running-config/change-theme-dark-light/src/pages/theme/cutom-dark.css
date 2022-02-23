@@ -7011,6 +7011,7 @@ _:-ms-fullscreen .custom-dark-picker-range-wrapper .custom-dark-picker-year-pane
   height: 100%;
 }
 .custom-dark-drawer-body {
+  color: rgba(255, 255, 255, 0.85);
   flex-grow: 1;
   padding: 24px;
   overflow: auto;

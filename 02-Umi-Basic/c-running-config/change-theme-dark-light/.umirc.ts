@@ -6,4 +6,10 @@ export default defineConfig({
   },
   routes: [{ path: '/', component: '@/pages/index' }],
   fastRefresh: {},
+  antd: {
+    disableBabelPluginImport: true,
+  },
+  theme: {
+    'root-entry-name': 'variable',
+  },
 });
