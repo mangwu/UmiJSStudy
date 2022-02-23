@@ -9,10 +9,28 @@ import {
   message,
   Table,
   Tag,
+  Modal,
 } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
-import { antdRedTheme, antdBlueTheme } from '@/theme/antd.theme.config';
-
+// import { antdRedTheme, antdBlueTheme } from '@/theme/antd.theme.config';
+const { confirm } = Modal;
+let root: any = document.body.querySelector('#root')?.firstChild;
+console.log(root);
+function showConfirm() {
+  confirm({
+    title: 'Do you Want to delete these items?',
+    icon: <ExclamationCircleOutlined />,
+    content: 'Some descriptions',
+    getContainer: root,
+    onOk() {
+      console.log('OK');
+    },
+    onCancel() {
+      console.log('Cancel');
+    },
+  });
+}
 const data = [
   {
     key: '1',
@@ -40,11 +58,11 @@ export default function IndexPage() {
   useEffect(() => {
     // 设置默认主题
     const root = document.documentElement;
-    root.className = 'blue';
-    window.localStorage.myTheme = 'blue';
-    ConfigProvider.config({
-      theme: antdBlueTheme,
-    });
+    root.className = prefix;
+    // window.localStorage.myTheme = 'blue';
+    // ConfigProvider.config({
+    //   theme: antdBlueTheme,
+    // });
   }, []);
   // 表格数据
   const columns = [
@@ -96,28 +114,39 @@ export default function IndexPage() {
     },
   ];
   // css var变量前缀名默认为ant
-  const [prefix, setPrefix] = useState('ant');
+  const [prefix, setPrefix] = useState('custom-default');
   // 修改前缀名称方法
   const handlePrefixChange = (e: any) => {
     setPrefix(e.target.value);
     // 同时修改对应的自定义主题
-    const className = e.target.value == 'ant' ? 'blue' : 'red';
+    const className = e.target.value;
     window.localStorage.myTheme = className;
     const root = document.documentElement;
     root.className = className;
-    ConfigProvider.config({
-      theme: className == 'blue' ? antdBlueTheme : antdRedTheme,
-    });
+    // ConfigProvider.config({
+    //   theme: className == 'blue' ? antdBlueTheme : antdRedTheme,
+    // });
+  };
+  // modal
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
   };
   return (
     <ConfigProvider prefixCls={prefix}>
-      <div>
-        <h1 className="title">Page index</h1>
+      <div className={prefix}>
+        {/* <h1 className="title">Page index</h1> */}
         <h1>
           <Space>
             <Radio.Group onChange={handlePrefixChange} value={prefix}>
-              <Radio value="ant">Ant Style</Radio>
-              <Radio value="custom">Custom Style</Radio>
+              <Radio value="custom-default">custom-default</Radio>
+              <Radio value="custom-dark">custom-dark</Radio>
             </Radio.Group>
           </Space>
         </h1>
@@ -131,6 +160,20 @@ export default function IndexPage() {
           警告
         </Button>
         <Table dataSource={data} columns={columns} />
+        <Button type="primary" onClick={showModal}>
+          Open Modal
+        </Button>
+        <Button onClick={showConfirm}>Confirm</Button>
+        <Modal
+          title="Basic Modal"
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
       </div>
     </ConfigProvider>
   );
