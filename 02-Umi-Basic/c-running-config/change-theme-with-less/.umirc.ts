@@ -9,7 +9,8 @@ export default defineConfig({
   antd: {
     disableBabelPluginImport: true,
   },
-  // theme: {
-  //   'root-entry-name': 'variable',
-  // },
+  theme: {
+    'root-entry-name': 'variable',
+  },
+  // layout: {},
 });

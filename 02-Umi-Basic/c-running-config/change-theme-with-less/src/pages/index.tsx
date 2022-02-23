@@ -48,7 +48,7 @@ export default function IndexPage() {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      render: (text: any) => <a>{text}</a>,
+      render: (text: any) => <a className={`${prefix}-link`}>{text}</a>,
     },
     {
       title: 'Age',
@@ -85,8 +85,8 @@ export default function IndexPage() {
       key: 'action',
       render: (_text: any, record: any) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
-          <a>Delete</a>
+          <a className={`${prefix}-link`}>Invite {record.name}</a>
+          <a className={`${prefix}-link`}>Delete</a>
         </Space>
       ),
     },
